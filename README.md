@@ -17,9 +17,11 @@
 
 ## benchmark 
 good info: https://www.squash.io/tutorial-generating-guid-in-typescript/
-- check the fastest option to create 10.000 guids
+- check the fastest option to create 100.000 guids
 - libraries
 - function with random
+
+https://github.com/tinylibs/tinybench
 
 ## stack
 Given that this is an easy project and dont see a need for a backend, SPA will be.

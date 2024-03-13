@@ -13,7 +13,12 @@
   - js/ts
   - java
 - guid version? v1? v4?
+  - explain different guid types
 - console mode?
+- generated guids counter?
+- github link
+- disclaimer that the guid is generated as is without any warranty
+- licence? mit?
 
 ## benchmark 
 good info: https://www.squash.io/tutorial-generating-guid-in-typescript/
@@ -45,5 +50,8 @@ yes, this is part of the cloud challenge
 ## tests
 absolutely, should be green for the CI/CD
 
+## GUIDS?
+- https://www.ietf.org/rfc/rfc4122.txt RFC4122
+- 
 
 

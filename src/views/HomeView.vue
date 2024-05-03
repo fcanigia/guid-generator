@@ -1,9 +1,10 @@
 <script setup lang="ts">
 import { v4 as uuidv4 } from 'uuid'
 import { Guid } from 'guid-typescript'
-import { ref } from 'vue'
+import { onMounted, ref } from 'vue'
 
 const numberOfGuids = ref(1)
+const numberOfGuidsInput = ref(null)
 const generatedGuids = ref('')
 const generationOption = ref('crypto.randomUUID')
 const copyToClipboard = ref(false)
@@ -63,10 +64,13 @@ const generateGuids = () => {
       <div class="flex items-center mb-4">
         <label for="numberOfGuids" class="mr-2">Number of GUIDs</label>
         <input
+          ref="numberOfGuidsInput"
           id="numberOfGuids"
           v-model="numberOfGuids"
           type="number"
           class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500"
+          @keydown.enter="generateGuids"
+          autofocus
         />
       </div>
       <div class="mb-4">

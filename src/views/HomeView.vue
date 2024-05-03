@@ -5,6 +5,9 @@ import { ref } from 'vue'
 
 const numberOfGuids = ref(1)
 const generatedGuids = ref('')
+const generationOption = ref('crypto.randomUUID')
+const copyToClipboard = ref(false)
+const uppercase = ref(false)
 
 // #1 - crypto.randomUUID
 const generateGuid = () => {
@@ -57,13 +60,35 @@ const generateGuids = () => {
   <div class="min-h-screen bg-gray-100 flex items-center justify-center">
     <div class="bg-white p-8 rounded-lg shadow-md w-full max-w-md">
       <h1 class="text-2xl font-bold mb-4">GUID Generator</h1>
-      <label for="numberOfGuids" class="block mb-2">Number of GUIDs</label>
-      <input
-        id="numberOfGuids"
-        v-model="numberOfGuids"
-        type="number"
-        class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500"
-      />
+      <div class="flex items-center mb-4">
+        <label for="numberOfGuids" class="mr-2">Number of GUIDs</label>
+        <input
+          id="numberOfGuids"
+          v-model="numberOfGuids"
+          type="number"
+          class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500"
+        />
+      </div>
+      <div class="mb-4">
+        <label for="generationOptions" class="block mb-2">Generation Options</label>
+        <div class="flex items-center">
+          <select
+            id="generationOptions"
+            v-model="generationOption"
+            class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500"
+          >
+            <option value="crypto.randomUUID">crypto.randomUUID</option>
+            <option value="uuidv4">uuidv4</option>
+            <option value="guid-typescript">guid-typescript</option>
+            <option value="timestamp">timestamp</option>
+            <option value="randomNumber">Random Number</option>
+          </select>
+          <input type="checkbox" id="copyToClipboard" v-model="copyToClipboard" class="ml-2" />
+          <label for="copyToClipboard" class="ml-1">Copy to Clipboard</label>
+          <input type="checkbox" id="uppercase" v-model="uppercase" class="ml-4" />
+          <label for="uppercase" class="ml-1">Uppercase</label>
+        </div>
+      </div>
       <button
         @click="generateGuids"
         class="mt-4 w-full px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 focus:outline-none"

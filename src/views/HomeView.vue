@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { onMounted, ref, watch } from 'vue'
+import { onMounted, ref } from 'vue'
 import { GuidGeneratorFactory } from '@/factories/GuidGeneratorFactory'
 
 const numberOfGuids = ref(1)
@@ -36,6 +36,10 @@ const generateGuids = () => {
 
   generatedGuids.value = guids.join('\n')
 
+  generatedGuids.value = uppercase.value ? generatedGuids.value.toUpperCase() : generatedGuids.value.toLowerCase()
+
+  console.log(copyToClipboard.value  )
+  
   if (copyToClipboard.value) {
     copyGuidsToClipboard(guids.join('\n'))
   }
@@ -104,7 +108,7 @@ const copyGuidsToClipboard = async (guids: string) => {
             <span class="checkbox-text">Copy to Clipboard</span>
           </label>
           <label class="checkbox-label">
-            <input type="checkbox" v-model="uppercase" class="checkbox-input" />
+            <input type="checkbox" v-model="uppercase" class="checkbox-input"  />
             <span class="checkbox-text">Uppercase</span>
           </label>
         </div>

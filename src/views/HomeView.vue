@@ -10,6 +10,17 @@ const generationOption = ref('crypto.randomUUID')
 const copyToClipboard = ref(false)
 const uppercase = ref(false)
 
+onMounted(() => {
+  window.addEventListener('keydown', handleGlobalKeydown)
+})
+
+const handleGlobalKeydown = (event: KeyboardEvent) => {
+  if (event.key === 'Enter') {
+    event.preventDefault()
+    generateGuids()
+  }
+}
+
 // #1 - crypto.randomUUID
 const generateGuid = () => {
   return crypto.randomUUID()
@@ -55,6 +66,10 @@ const generateGuids = () => {
   }
   generatedGuids.value = guids.join('\n')
 }
+
+const onEnter = () => {
+  generateGuids()
+}
 </script>
 
 <template>
@@ -69,7 +84,7 @@ const generateGuids = () => {
           v-model="numberOfGuids"
           type="number"
           class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500"
-          @keydown.enter="generateGuids"
+          @keydown.enter.prevent="onEnter"
           autofocus
         />
       </div>

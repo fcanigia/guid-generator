@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { onMounted, ref } from 'vue'
+import { onMounted, ref, watch } from 'vue'
 import { GuidGeneratorFactory } from '@/factories/GuidGeneratorFactory'
 
 const numberOfGuids = ref(1)
@@ -8,6 +8,8 @@ const generatedGuids = ref('')
 const generationOption = ref('crypto.randomUUID')
 const copyToClipboard = ref(false)
 const uppercase = ref(false)
+const startTime = ref(0)
+const elapsedTime = ref('')
 
 onMounted(() => {
   window.addEventListener('keydown', handleGlobalKeydown)
@@ -21,6 +23,8 @@ const handleGlobalKeydown = (event: KeyboardEvent) => {
 }
 
 const generateGuids = () => {
+  startTime.value = Date.now()
+
   const factory = new GuidGeneratorFactory()
   const generator = factory.createGuidGenerator(generationOption.value)
 
@@ -34,6 +38,20 @@ const generateGuids = () => {
 
   if (copyToClipboard.value) {
     copyGuidsToClipboard(guids.join('\n'))
+  }
+
+  const endTime = Date.now()
+  const diff = endTime - startTime.value
+  elapsedTime.value = formatElapsedTime(diff)
+}
+
+const formatElapsedTime = (diff: number): string => {
+  if (diff < 1000) {
+    return `${diff}ms`
+  } else if (diff < 60000) {
+    return `${(diff / 1000).toFixed(1)}s`
+  } else {
+    return `${Math.floor(diff / 60000)}m ${(diff % 60000) / 1000}s`
   }
 }
 
@@ -105,7 +123,11 @@ const copyGuidsToClipboard = async (guids: string) => {
           class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500"
           rows="5"
           readonly
-        ></textarea>
+        >
+        </textarea>
+        <span class="absolute bottom-0 right-0 bg-gray-200 text-xs px-2 py-1 rounded-md">
+          {{ elapsedTime }}
+        </span>
       </div>
     </div>
   </div>

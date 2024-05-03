@@ -1,7 +1,6 @@
 <script setup lang="ts">
-import { v4 as uuidv4 } from 'uuid'
-import { Guid } from 'guid-typescript'
 import { onMounted, ref } from 'vue'
+import { GuidGeneratorFactory } from '@/factories/GuidGeneratorFactory'
 
 const numberOfGuids = ref(1)
 const numberOfGuidsInput = ref(null)
@@ -21,54 +20,34 @@ const handleGlobalKeydown = (event: KeyboardEvent) => {
   }
 }
 
-// #1 - crypto.randomUUID
-const generateGuid = () => {
-  return crypto.randomUUID()
-}
-
-// #2 - uuid
-const generateGuidWithUuid = () => {
-  const guid = uuidv4()
-  console.log(guid)
-}
-
-// #3 - guid-typescript
-const generateGuidWithGuidTs = () => {
-  const guid = Guid.create().toString()
-  console.log(guid)
-}
-
-// #4 - timestamp
-const generateGuidWithTimeStamp = () => {
-  const timestamp = new Date().getTime()
-  const randomNum = Math.floor(Math.random() * 1000000)
-  const guid = `${timestamp}-${randomNum}`
-  console.log(guid)
-}
-
-// #5 - with random number
-const generateGuidWithRandomNumber = () => {
-  console.log(generateRandomNumberGUID())
-}
-
-function generateRandomNumberGUID(): string {
-  return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
-    var r = (Math.random() * 16) | 0,
-      v = c === 'x' ? r : (r & 0x3) | 0x8
-    return v.toString(16)
-  })
-}
-
 const generateGuids = () => {
+  const factory = new GuidGeneratorFactory()
+  const generator = factory.createGuidGenerator(generationOption.value)
+
   const guids = []
+
   for (let i = 0; i < numberOfGuids.value; i++) {
-    guids.push(generateGuid())
+    guids.push(generator.generateGuid())
   }
+
   generatedGuids.value = guids.join('\n')
+
+  if (copyToClipboard.value) {
+    copyGuidsToClipboard(guids.join('\n'))
+  }
 }
 
 const onEnter = () => {
   generateGuids()
+}
+
+const copyGuidsToClipboard = async (guids: string) => {
+  try {
+    await navigator.clipboard.writeText(guids)
+    console.log('GUIDs copied to clipboard')
+  } catch (error) {
+    console.error('Failed to copy GUIDs to clipboard:', error)
+  }
 }
 </script>
 
@@ -102,10 +81,14 @@ const onEnter = () => {
             <option value="timestamp">timestamp</option>
             <option value="randomNumber">Random Number</option>
           </select>
-          <input type="checkbox" id="copyToClipboard" v-model="copyToClipboard" class="ml-2" />
-          <label for="copyToClipboard" class="ml-1">Copy to Clipboard</label>
-          <input type="checkbox" id="uppercase" v-model="uppercase" class="ml-4" />
-          <label for="uppercase" class="ml-1">Uppercase</label>
+          <label class="checkbox-label">
+            <input type="checkbox" v-model="copyToClipboard" class="checkbox-input" />
+            <span class="checkbox-text">Copy to Clipboard</span>
+          </label>
+          <label class="checkbox-label">
+            <input type="checkbox" v-model="uppercase" class="checkbox-input" />
+            <span class="checkbox-text">Uppercase</span>
+          </label>
         </div>
       </div>
       <button
@@ -127,3 +110,16 @@ const onEnter = () => {
     </div>
   </div>
 </template>
+
+<style>
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  user-select: none; /* Prevent text selection */
+}
+
+.checkbox-text {
+  margin-left: 5px;
+  cursor: pointer; /* Change cursor to pointer on hover */
+}
+</style>

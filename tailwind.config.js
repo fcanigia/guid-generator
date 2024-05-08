@@ -3,7 +3,11 @@ export default {
   content: ['./index.html', './src/**/*.{js,ts,vue}'],
   darkMode: false,
   theme: {
-    extend: {}
+    extend: {
+      colors: {
+        favicon: '#A5F'
+      }
+    }
   },
   plugins: []
 }

@@ -36,10 +36,12 @@ const generateGuids = () => {
 
   generatedGuids.value = guids.join('\n')
 
-  generatedGuids.value = uppercase.value ? generatedGuids.value.toUpperCase() : generatedGuids.value.toLowerCase()
+  generatedGuids.value = uppercase.value
+    ? generatedGuids.value.toUpperCase()
+    : generatedGuids.value.toLowerCase()
 
-  console.log(copyToClipboard.value  )
-  
+  console.log(copyToClipboard.value)
+
   if (copyToClipboard.value) {
     copyGuidsToClipboard(guids.join('\n'))
   }
@@ -108,14 +110,14 @@ const copyGuidsToClipboard = async (guids: string) => {
             <span class="checkbox-text">Copy to Clipboard</span>
           </label>
           <label class="checkbox-label">
-            <input type="checkbox" v-model="uppercase" class="checkbox-input"  />
+            <input type="checkbox" v-model="uppercase" class="checkbox-input" />
             <span class="checkbox-text">Uppercase</span>
           </label>
         </div>
       </div>
       <button
         @click="generateGuids"
-        class="mt-4 w-full px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 focus:outline-none"
+        class="mt-4 w-full px-4 py-2 bg-favicon text-white rounded-md hover:bg-blue-600 focus:outline-none"
       >
         Get GUIDs
       </button>

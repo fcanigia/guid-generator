@@ -6,6 +6,9 @@ const numberOfGuids = ref(1)
 const numberOfGuidsInput = ref(null)
 const generatedGuids = ref('')
 const generationOption = ref('crypto.randomUUID')
+const generationWrapper = ref('No')
+const generationSeparator = ref('-')
+const generationTrailingChar = ref('')
 const copyToClipboard = ref(false)
 const uppercase = ref(false)
 const startTime = ref(0)
@@ -23,6 +26,8 @@ const handleGlobalKeydown = (event: KeyboardEvent) => {
 }
 
 const generateGuids = () => {
+  console.log(generationTrailingChar.value)
+
   startTime.value = Date.now()
 
   const factory = new GuidGeneratorFactory()
@@ -34,13 +39,11 @@ const generateGuids = () => {
     guids.push(generator.generateGuid())
   }
 
-  generatedGuids.value = guids.join('\n')
+  generatedGuids.value = guids.join(`${generationTrailingChar.value}\n`)
 
   generatedGuids.value = uppercase.value
     ? generatedGuids.value.toUpperCase()
     : generatedGuids.value.toLowerCase()
-
-  console.log(copyToClipboard.value)
 
   if (copyToClipboard.value) {
     copyGuidsToClipboard(guids.join('\n'))
@@ -62,6 +65,11 @@ const formatElapsedTime = (diff: number): string => {
 }
 
 const onEnter = () => {
+  if (numberOfGuids.value < 1) {
+    numberOfGuids.value = 1
+  } else if (numberOfGuids.value > 200000) {
+    numberOfGuids.value = 200000
+  }
   generateGuids()
 }
 
@@ -94,8 +102,9 @@ const copyGuidsToClipboard = async (guids: string) => {
         />
       </div>
       <div class="mb-4">
-        <label for="generationOptions" class="block mb-2">Generation Options</label>
+        <label for="generationOptions" class="block mb-2 font-bold">Options</label>
         <div class="flex items-center">
+          <label class="mr-2">Method:</label>
           <select
             id="generationOptions"
             v-model="generationOption"
@@ -107,7 +116,46 @@ const copyGuidsToClipboard = async (guids: string) => {
             <option value="timestamp">timestamp</option>
             <option value="randomNumber">Random Number</option>
           </select>
-          <label class="checkbox-label">
+        </div>
+        <div class="flex items-center mt-2">
+          <label class="mr-2">Wrap?:</label>
+          <select
+            id="generationWrapper"
+            v-model="generationWrapper"
+            class="px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500"
+          >
+            <option value="No">No</option>
+            <option value='"'>"</option>
+            <option value="'">'</option>
+          </select>
+          <label class="mr-2">Separator:</label>
+          <select
+            id="generationSeparator"
+            v-model="generationSeparator"
+            class="px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500"
+          >
+            <option value="-">-</option>
+            <option value="|">|</option>
+            <option value="#">#</option>
+          </select>
+        </div>
+
+        <div class="flex items-center">
+          <label class="mr-2">Trailing character:</label>
+          <select
+            id="generationTrailingChar"
+            v-model="generationTrailingChar"
+            class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500"
+          >
+            <option value="">No</option>
+            <option value=",">,</option>
+            <option value=".">.</option>
+            <option value=";">;</option>
+          </select>
+        </div>
+
+        <div class="flex flex-row mt-2">
+          <label class="checkbox-label mr-8">
             <input type="checkbox" v-model="copyToClipboard" class="checkbox-input" />
             <span class="checkbox-text">Copy to Clipboard</span>
           </label>
@@ -124,7 +172,7 @@ const copyGuidsToClipboard = async (guids: string) => {
         Get GUIDs
       </button>
       <div class="mt-4">
-        <label for="generatedGuids" class="block mb-2">Generated GUIDs</label>
+        <label for="generatedGuids" class="block mb-2 font-bold">Result</label>
         <textarea
           id="generatedGuids"
           v-model="generatedGuids"

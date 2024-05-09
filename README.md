@@ -2,12 +2,12 @@
 
 [![Azure Static Web Apps CI/CD](https://github.com/fcanigia/guid-generator/actions/workflows/azure-static-web-apps-ambitious-sky-01081dc0f.yml/badge.svg)](https://github.com/fcanigia/guid-generator/actions/workflows/azure-static-web-apps-ambitious-sky-01081dc0f.yml)
 
-## features
-- allow to create GUIDS
-  - selecting quantity
+## Features
+- [x] allow to create GUIDS
+  - [x] selecting quantity
   - format (hyphens, uppercase, braces, quotes, commas)
   - encoding
-- copy to clipboard
+- [x] copy to clipboard 
 - download to a file
 - parse depending on the language
   - c#: var guid1 = new Guid("98b46b60-d125-11ee-8939-63aed55d17c4");
@@ -31,29 +31,17 @@ good info: https://www.squash.io/tutorial-generating-guid-in-typescript/
 https://github.com/tinylibs/tinybench
 
 ## stack
-Given that this is an easy project and dont see a need for a backend, SPA will be.
-- vue?: + easy to use, + woring with
-- react?: - never had a chance to learn it, + most popular framework
-- angular?: - angular
-
-## design
-very dificult, what about material? tailwind?
-https://vuetifyjs.com/en/components/all/#containment
+- vue
+- tailwind
 
 ## hosting
-cloud, could be Azure, or another place
-
-## domain
-TBD
+Azure Static Web App
 
 ## CI/CD
-yes, this is part of the cloud challenge
+Github Actions
 
 ## tests
 absolutely, should be green for the CI/CD
 
 ## GUIDS?
 - https://www.ietf.org/rfc/rfc4122.txt RFC4122
-- 
-
-

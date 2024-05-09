@@ -88,6 +88,8 @@ const copyGuidsToClipboard = async (guids: string) => {
           type="number"
           class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500"
           @keydown.enter.prevent="onEnter"
+          max="200000"
+          min="1"
           autofocus
         />
       </div>
@@ -117,7 +119,7 @@ const copyGuidsToClipboard = async (guids: string) => {
       </div>
       <button
         @click="generateGuids"
-        class="mt-4 w-full px-4 py-2 bg-favicon text-white rounded-md hover:bg-blue-600 focus:outline-none"
+        class="mt-4 w-full px-4 py-2 bg-favicon text-white rounded-md hover:bg-faviconDarker focus:outline-none"
       >
         Get GUIDs
       </button>

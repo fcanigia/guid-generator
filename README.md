@@ -2,6 +2,8 @@
 
 [![CI/CD](https://github.com/fcanigia/guid-generator/actions/workflows/azure-static-web-apps-ambitious-sky-01081dc0f.yml/badge.svg)](https://github.com/fcanigia/guid-generator/actions/workflows/azure-static-web-apps-ambitious-sky-01081dc0f.yml)
 
+[Guid Generator](https://freeguid.online)
+
 ## Features
 - [x] allow to create GUIDS
   - [x] selecting quantity

@@ -1,6 +1,6 @@
 # guid-generator
 
-[![Azure Static Web Apps CI/CD](https://github.com/fcanigia/guid-generator/actions/workflows/azure-static-web-apps-ambitious-sky-01081dc0f.yml/badge.svg)](https://github.com/fcanigia/guid-generator/actions/workflows/azure-static-web-apps-ambitious-sky-01081dc0f.yml)
+[![CI/CD](https://github.com/fcanigia/guid-generator/actions/workflows/azure-static-web-apps-ambitious-sky-01081dc0f.yml/badge.svg)](https://github.com/fcanigia/guid-generator/actions/workflows/azure-static-web-apps-ambitious-sky-01081dc0f.yml)
 
 ## Features
 - [x] allow to create GUIDS

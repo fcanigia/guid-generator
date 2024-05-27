@@ -6,7 +6,7 @@ const numberOfGuids = ref(1)
 const numberOfGuidsInput = ref(null)
 const generatedGuids = ref('')
 const generationOption = ref('crypto.randomUUID')
-const generationWrapper = ref('No')
+const generationWrapper = ref('')
 const generationSeparator = ref('-')
 const generationTrailingChar = ref('')
 const copyToClipboard = ref(false)
@@ -26,7 +26,7 @@ const handleGlobalKeydown = (event: KeyboardEvent) => {
 }
 
 const generateGuids = () => {
-  console.log(generationTrailingChar.value)
+  console.log(generationSeparator.value)
 
   startTime.value = Date.now()
 
@@ -34,9 +34,16 @@ const generateGuids = () => {
   const generator = factory.createGuidGenerator(generationOption.value)
 
   const guids = []
+  const wrapper = generationWrapper.value
 
   for (let i = 0; i < numberOfGuids.value; i++) {
-    guids.push(generator.generateGuid())
+    let guid = generator.generateGuid()
+
+    if (generationSeparator.value != '-') {
+      guid = guid.replace('/-/g', generationSeparator.value)
+    }
+
+    guids.push(`${wrapper}${guid}${wrapper}`)
   }
 
   generatedGuids.value = guids.join(`${generationTrailingChar.value}\n`)
@@ -124,7 +131,7 @@ const copyGuidsToClipboard = async (guids: string) => {
             v-model="generationWrapper"
             class="px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500"
           >
-            <option value="No">No</option>
+            <option value="">No</option>
             <option value='"'>"</option>
             <option value="'">'</option>
           </select>

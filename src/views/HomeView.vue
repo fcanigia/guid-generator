@@ -131,9 +131,9 @@ const copyGuidsToClipboard = async (guids: string) => {
             v-model="generationWrapper"
             class="px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500"
           >
-            <option value="">No</option>
-            <option value='"'>"</option>
-            <option value="'">'</option>
+            <option value="" label="No">No</option>
+            <option value='"' label='"'>"</option>
+            <option value="'" label="'">'</option>
           </select>
           <label class="mr-2">Separator:</label>
           <select
@@ -141,9 +141,9 @@ const copyGuidsToClipboard = async (guids: string) => {
             v-model="generationSeparator"
             class="px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500"
           >
-            <option value="-">-</option>
-            <option value="|">|</option>
-            <option value="#">#</option>
+            <option value="-" label="-">-</option>
+            <option value="|" label="|">|</option>
+            <option value="#" label="#">#</option>
           </select>
         </div>
 
@@ -154,10 +154,10 @@ const copyGuidsToClipboard = async (guids: string) => {
             v-model="generationTrailingChar"
             class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500"
           >
-            <option value="">No</option>
-            <option value=",">,</option>
-            <option value=".">.</option>
-            <option value=";">;</option>
+            <option value="" label="No">No</option>
+            <option value="," label=",">,</option>
+            <option value="." label=".">.</option>
+            <option value=";" label=";">;</option>
           </select>
         </div>
 

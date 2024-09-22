@@ -93,7 +93,7 @@ const copyGuidsToClipboard = async (guids: string) => {
     <div class="bg-white p-8 rounded-lg shadow-md w-full max-w-md">
       <h1 class="text-2xl font-bold mb-4">GUID Generator</h1>
       <div class="flex items-center mb-4">
-        <label for="numberOfGuids" class="mr-2">Number of GUIDs</label>
+        <label for="numberOfGuids" class="mr-2">Number of GUIDs:</label>
         <input
           ref="numberOfGuidsInput"
           id="numberOfGuids"
@@ -107,7 +107,7 @@ const copyGuidsToClipboard = async (guids: string) => {
         />
       </div>
       <div class="mb-4">
-        <label for="generationOptions" class="block mb-2 font-bold">Options</label>
+        <h2><label for="generationOptions" class="block mb-2 font-bold">Options</label></h2>
         <div class="flex items-center">
           <label class="mr-2">Method:</label>
           <select
@@ -122,22 +122,23 @@ const copyGuidsToClipboard = async (guids: string) => {
             <option value="randomNumber" label="randomNumber">Random Number</option>
           </select>
         </div>
-        <div class="flex items-center mt-2">
+        <div class="flex items-center mt-2 space-x-2">
           <label class="mr-2">Wrap?:</label>
           <select
             id="generationWrapper"
             v-model="generationWrapper"
-            class="px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500"
+            class="flex-1 px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500"
           >
             <option value="" label="No">No</option>
             <option value='"' label='"'>"</option>
             <option value="'" label="'">'</option>
           </select>
+
           <label class="mr-2">Separator:</label>
           <select
             id="generationSeparator"
             v-model="generationSeparator"
-            class="px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500"
+            class="flex-1 px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500"
           >
             <option value="-" label="-">-</option>
             <option value="|" label="|">|</option>
@@ -177,7 +178,7 @@ const copyGuidsToClipboard = async (guids: string) => {
         Get GUIDs
       </button>
       <div class="mt-4">
-        <label for="generatedGuids" class="block mb-2 font-bold">Result</label>
+        <h2><label for="generatedGuids" class="block mb-2 font-bold">Result</label></h2>
         <textarea
           id="generatedGuids"
           v-model="generatedGuids"

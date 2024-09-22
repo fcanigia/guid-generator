@@ -26,8 +26,6 @@ const handleGlobalKeydown = (event: KeyboardEvent) => {
 }
 
 const generateGuids = () => {
-  console.log(generationSeparator.value)
-
   startTime.value = Date.now()
 
   const factory = new GuidGeneratorFactory()
@@ -40,7 +38,7 @@ const generateGuids = () => {
     let guid = generator.generateGuid()
 
     if (generationSeparator.value != '-') {
-      guid = guid.replace('/-/g', generationSeparator.value)
+      guid = guid.replace(/-/g, generationSeparator.value)
     }
 
     guids.push(`${wrapper}${guid}${wrapper}`)

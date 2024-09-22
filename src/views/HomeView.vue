@@ -117,11 +117,11 @@ const copyGuidsToClipboard = async (guids: string) => {
             v-model="generationOption"
             class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500"
           >
-            <option value="crypto.randomUUID">crypto.randomUUID</option>
-            <option value="uuidv4">uuidv4</option>
-            <option value="guid-typescript">guid-typescript</option>
-            <option value="timestamp">timestamp</option>
-            <option value="randomNumber">Random Number</option>
+            <option value="crypto.randomUUID" label="randomUUID">crypto.randomUUID</option>
+            <option value="uuidv4" label="uuidv4">uuidv4</option>
+            <option value="guid-typescript" label="typescript">guid-typescript</option>
+            <option value="timestamp" label="timestamp">timestamp</option>
+            <option value="randomNumber" label="randomNumber">Random Number</option>
           </select>
         </div>
         <div class="flex items-center mt-2">

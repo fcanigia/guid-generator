@@ -89,9 +89,15 @@ const copyGuidsToClipboard = async (guids: string) => {
 </script>
 
 <template>
+  <div class="sr-only">
+    <h1>
+      Easily generate unique GUIDs with our free online GUID generator. Simple, fast, and reliable!
+      Try it now!
+    </h1>
+  </div>
   <div class="min-h-screen bg-gray-100 flex items-center justify-center">
     <div class="bg-white p-8 rounded-lg shadow-md w-full max-w-md">
-      <h1 class="text-2xl font-bold mb-4">GUID Generator</h1>
+      <h2 class="text-2xl font-bold mb-4">GUID Generator</h2>
       <div class="flex items-center mb-4">
         <label for="numberOfGuids" class="mr-2">Number of GUIDs:</label>
         <input
@@ -221,5 +227,16 @@ const copyGuidsToClipboard = async (guids: string) => {
 .checkbox-text {
   margin-left: 5px;
   cursor: pointer; /* Change cursor to pointer on hover */
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
 }
 </style>

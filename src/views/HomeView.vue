@@ -96,7 +96,20 @@ const copyGuidsToClipboard = async (guids: string) => {
     </h1>
   </div>
   <div class="min-h-screen bg-gray-100 flex items-center justify-center">
-    <div class="bg-white p-8 rounded-lg shadow-md w-full max-w-md">
+    <!-- Left Section: Text Information -->
+    <div class="hidden md:block text-left p-6 max-w-md">
+      <h1 class="text-3xl font-bold text-gray-800 mb-4">Online Free GUID Generator</h1>
+      <h2 class="text-2xl font-semibold text-gray-700 mb-2">What is a GUID/UUID?</h2>
+      <p class="text-gray-600 mb-4">
+        A GUID (Globally Unique Identifier) or UUID (Universally Unique Identifier) is a 128-bit
+        value used to uniquely identify objects or information in a distributed system, without
+        needing to rely on a central authority to ensure uniqueness.
+      </p>
+      <h2 class="text-2xl font-semibold text-gray-700 mb-2">How to use the app?</h2>
+      <p class="text-gray-600">Just press Enter key or click on the "Get GUIDs" button.</p>
+    </div>
+
+    <div class="bg-white p-8 rounded-lg shadow-md w-full max-w-md mx-8">
       <h2 class="text-2xl font-bold mb-4">GUID Generator</h2>
       <div class="flex items-center mb-4">
         <label for="numberOfGuids" class="mr-2">Number of GUIDs:</label>

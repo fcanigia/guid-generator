@@ -90,26 +90,39 @@ const copyGuidsToClipboard = async (guids: string) => {
 
 <template>
   <div class="sr-only">
-    <h1>
-      Easily generate unique GUIDs with our free online GUID generator. Simple, fast, and reliable!
-      Try it now!
-    </h1>
+    Easily generate unique GUIDs with our free online GUID generator. Simple, fast, and reliable!
+    Try it now!
   </div>
   <div class="min-h-screen bg-gray-100 flex items-center justify-center">
     <!-- Left Section: Text Information -->
+
     <div class="hidden md:block text-left p-6 max-w-md">
-      <h1 class="text-3xl font-bold text-gray-800 mb-4 inline-block" title="Home">
-        <img src="/public/favicon.ico" alt="Free GUID generator" />
+      <h1 class="text-3xl font-bold text-gray-800 mb-4 inline-flex items-center" title="Home">
+        <img src="/public/favicon.ico" alt="GUID generator logo" class="mr-2" />
         Online Free GUID Generator
       </h1>
       <h2 class="text-2xl font-semibold text-gray-700 mb-2">What is a GUID/UUID?</h2>
       <p class="text-gray-600 mb-4">
         A GUID (Globally Unique Identifier) or UUID (Universally Unique Identifier) is a 128-bit
-        value used to uniquely identify objects or information in a distributed system, without
-        needing to rely on a central authority to ensure uniqueness.
+        value used to uniquely identify objects or information in a distributed system. This unique
+        identifier does not rely on a central authority, making it an ideal solution for various
+        applications.
       </p>
-      <h2 class="text-2xl font-semibold text-gray-700 mb-2">How to use the app?</h2>
-      <p class="text-gray-600">Just press Enter key or click on the "Get GUIDs" button.</p>
+      <h2 class="text-2xl font-semibold text-gray-700 mb-2">
+        How to Use the Online GUID Generator?
+      </h2>
+      <p class="text-gray-600 mb-4">
+        With our <strong>free online GUID generator</strong>, you can easily create unique
+        identifiers. Just press the Enter key or click on the "Get GUIDs" button to generate your
+        GUIDs. This tool is designed to help developers and users generate GUIDs quickly and
+        efficiently.
+      </p>
+      <h2 class="text-2xl font-semibold text-gray-700 mb-2">Why Use a GUID?</h2>
+      <p class="text-gray-600 mb-4">
+        Using a GUID can be beneficial for ensuring uniqueness in databases, distributed systems,
+        and applications that require a reliable method for object identification. Understanding how
+        to generate a GUID and why it’s important can help in many software development scenarios.
+      </p>
     </div>
 
     <div class="bg-white p-8 rounded-lg shadow-md w-full max-w-md mx-8">

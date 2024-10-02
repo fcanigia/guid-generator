@@ -216,11 +216,19 @@ const copyGuidsToClipboard = async (guids: string) => {
     <!-- Footer Section -->
     <div>
       <span class="absolute bottom-0 left-0 bg-gray-200 text-xs px-2 py-1 rounded-md">
-        <a href="https://github.com/fcanigia" target="_blank" class="hover:underline"> GitHub </a>
+        <a
+          href="https://github.com/fcanigia"
+          target="_blank"
+          rel="noopener"
+          class="hover:underline"
+        >
+          GitHub
+        </a>
         |
         <a
           href="https://en.wikipedia.org/wiki/Universally_unique_identifier"
           target="_blank"
+          rel="noopener"
           class="hover:underline"
         >
           GUID Wiki

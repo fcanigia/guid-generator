@@ -134,11 +134,11 @@ const copyGuidsToClipboard = async (guids: string) => {
             v-model="generationOption"
             class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500"
           >
-            <option value="crypto.randomUUID" label="randomUUID">crypto.randomUUID</option>
-            <option value="uuidv4" label="uuidv4">uuidv4</option>
-            <option value="guid-typescript" label="typescript">guid-typescript</option>
-            <option value="timestamp" label="timestamp">timestamp</option>
-            <option value="randomNumber" label="randomNumber">Random Number</option>
+            <option value="crypto.randomUUID" label="randomUUID"></option>
+            <option value="uuidv4" label="uuidv4"></option>
+            <option value="guid-typescript" label="typescript"></option>
+            <option value="timestamp" label="timestamp"></option>
+            <option value="randomNumber" label="randomNumber"></option>
           </select>
         </div>
         <div class="flex items-center mt-2 space-x-2">
@@ -148,9 +148,9 @@ const copyGuidsToClipboard = async (guids: string) => {
             v-model="generationWrapper"
             class="flex-1 px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500"
           >
-            <option value="" label="No">No</option>
-            <option value='"' label="Quotation mark">"</option>
-            <option value="'" label="Single Quotation mark">'</option>
+            <option value="" label="No"></option>
+            <option value='"' label='"'></option>
+            <option value="'" label="'"></option>
           </select>
 
           <label class="mr-2">Separator:</label>
@@ -159,9 +159,9 @@ const copyGuidsToClipboard = async (guids: string) => {
             v-model="generationSeparator"
             class="flex-1 px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500"
           >
-            <option value="-" label="Hyphen">-</option>
-            <option value="|" label="Pipe">|</option>
-            <option value="#" label="Hash">#</option>
+            <option value="-" label="-"></option>
+            <option value="|" label="|"></option>
+            <option value="#" label="#"></option>
           </select>
         </div>
 
@@ -172,10 +172,10 @@ const copyGuidsToClipboard = async (guids: string) => {
             v-model="generationTrailingChar"
             class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500"
           >
-            <option value="" label="No">No</option>
-            <option value="," label="Comma">,</option>
-            <option value="." label="Dot">.</option>
-            <option value=";" label="Semicolon">;</option>
+            <option value="" label="No"></option>
+            <option value="," label=","></option>
+            <option value="." label="."></option>
+            <option value=";" label=";"></option>
           </select>
         </div>
 
@@ -213,15 +213,15 @@ const copyGuidsToClipboard = async (guids: string) => {
     </div>
     <!-- Footer Section -->
     <div>
-      <span class="absolute bottom-0 left-0 bg-gray-200 text-xs px-2 py-1 rounded-md">
-        <a href="https://github.com/fcanigia" target="_blank" class="text-blue-500 hover:underline">
+      <span class="absolute bottom-0 left-0 bg-gray-300 text-xs px-2 py-1 rounded-md">
+        <a href="https://github.com/fcanigia" target="_blank" class="text-blue-600 hover:underline">
           GitHub
         </a>
         |
         <a
           href="https://en.wikipedia.org/wiki/Universally_unique_identifier"
           target="_blank"
-          class="text-blue-500 hover:underline"
+          class="text-blue-600 hover:underline"
         >
           GUID Wiki
         </a>

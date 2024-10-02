@@ -149,8 +149,8 @@ const copyGuidsToClipboard = async (guids: string) => {
             class="flex-1 px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500"
           >
             <option value="" label="No">No</option>
-            <option value='"' label='"'>"</option>
-            <option value="'" label="'">'</option>
+            <option value='"' label="Quotation mark">"</option>
+            <option value="'" label="Single Quotation mark">'</option>
           </select>
 
           <label class="mr-2">Separator:</label>
@@ -159,9 +159,9 @@ const copyGuidsToClipboard = async (guids: string) => {
             v-model="generationSeparator"
             class="flex-1 px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500"
           >
-            <option value="-" label="-">-</option>
-            <option value="|" label="|">|</option>
-            <option value="#" label="#">#</option>
+            <option value="-" label="Hyphen">-</option>
+            <option value="|" label="Pipe">|</option>
+            <option value="#" label="Hash">#</option>
           </select>
         </div>
 
@@ -173,9 +173,9 @@ const copyGuidsToClipboard = async (guids: string) => {
             class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500"
           >
             <option value="" label="No">No</option>
-            <option value="," label=",">,</option>
-            <option value="." label=".">.</option>
-            <option value=";" label=";">;</option>
+            <option value="," label="Comma">,</option>
+            <option value="." label="Dot">.</option>
+            <option value=";" label="Semicolon">;</option>
           </select>
         </div>
 

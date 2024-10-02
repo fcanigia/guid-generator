@@ -98,7 +98,10 @@ const copyGuidsToClipboard = async (guids: string) => {
   <div class="min-h-screen bg-gray-100 flex items-center justify-center">
     <!-- Left Section: Text Information -->
     <div class="hidden md:block text-left p-6 max-w-md">
-      <h1 class="text-3xl font-bold text-gray-800 mb-4">Online Free GUID Generator</h1>
+      <h1 class="text-3xl font-bold text-gray-800 mb-4 inline-block" title="Home">
+        <img src="/public/favicon.ico" alt="Free GUID generator" />
+        Online Free GUID Generator
+      </h1>
       <h2 class="text-2xl font-semibold text-gray-700 mb-2">What is a GUID/UUID?</h2>
       <p class="text-gray-600 mb-4">
         A GUID (Globally Unique Identifier) or UUID (Universally Unique Identifier) is a 128-bit
@@ -142,7 +145,7 @@ const copyGuidsToClipboard = async (guids: string) => {
           </select>
         </div>
         <div class="flex items-center mt-2 space-x-2">
-          <label class="mr-2">Wrap?:</label>
+          <label for="generationWrapper" class="mr-2">Wrap?:</label>
           <select
             id="generationWrapper"
             v-model="generationWrapper"
@@ -153,7 +156,7 @@ const copyGuidsToClipboard = async (guids: string) => {
             <option value="'" label="'"></option>
           </select>
 
-          <label class="mr-2">Separator:</label>
+          <label for="generationSeparator" class="mr-2">Separator:</label>
           <select
             id="generationSeparator"
             v-model="generationSeparator"
@@ -164,9 +167,8 @@ const copyGuidsToClipboard = async (guids: string) => {
             <option value="#" label="#"></option>
           </select>
         </div>
-
         <div class="flex items-center">
-          <label class="mr-2">Trailing character:</label>
+          <label for="generationTrailingChar" class="mr-2">Trailing character:</label>
           <select
             id="generationTrailingChar"
             v-model="generationTrailingChar"
@@ -213,15 +215,13 @@ const copyGuidsToClipboard = async (guids: string) => {
     </div>
     <!-- Footer Section -->
     <div>
-      <span class="absolute bottom-0 left-0 bg-gray-300 text-xs px-2 py-1 rounded-md">
-        <a href="https://github.com/fcanigia" target="_blank" class="text-blue-600 hover:underline">
-          GitHub
-        </a>
+      <span class="absolute bottom-0 left-0 bg-gray-200 text-xs px-2 py-1 rounded-md">
+        <a href="https://github.com/fcanigia" target="_blank" class="hover:underline"> GitHub </a>
         |
         <a
           href="https://en.wikipedia.org/wiki/Universally_unique_identifier"
           target="_blank"
-          class="text-blue-600 hover:underline"
+          class="hover:underline"
         >
           GUID Wiki
         </a>

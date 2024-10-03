@@ -96,7 +96,7 @@ const copyGuidsToClipboard = async (guids: string) => {
   <div class="min-h-screen bg-gray-100 flex items-center justify-center">
     <!-- Left Section: Text Information -->
 
-    <div class="hidden md:block text-left p-6 max-w-md">
+    <div class="text-left p-6 max-w-md">
       <h1 class="text-3xl font-bold text-gray-800 mb-4 inline-flex items-center" title="Home">
         <img src="/public/favicon.ico" alt="GUID generator logo" class="mr-2" />
         Online Free GUID Generator

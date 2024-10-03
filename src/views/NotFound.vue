@@ -17,28 +17,4 @@
   </div>
 </template>
 
-<script setup lang="ts">
-// Add any specific logic here if needed
-</script>
-
-<style scoped>
-/* Reuse styles to match the existing app theme */
-.bg-favicon {
-  background-color: #4a90e2; /* Example color, replace with actual favicon color */
-}
-
-.bg-faviconDarker {
-  background-color: #3a70b2; /* Darker version of the favicon color */
-}
-
-.sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  border: 0;
-}
-</style>
+<script setup lang="ts"></script>

@@ -96,11 +96,11 @@ const copyGuidsToClipboard = async (guids: string) => {
   <div class="min-h-screen bg-gray-100 flex items-center justify-center">
     <!-- Left Section: Text Information -->
 
-    <div class="text-left p-6 max-w-md">
-      <h1 class="text-3xl font-bold text-gray-800 mb-4 inline-flex items-center" title="Home">
+    <div class="hidden md:block text-left p-6 max-w-md">
+      <h2 class="text-3xl font-bold text-gray-800 mb-4 inline-flex items-center" title="Home">
         <img src="/public/favicon.ico" alt="GUID generator logo" class="mr-2" />
         Online Free GUID Generator
-      </h1>
+      </h2>
       <h2 class="text-2xl font-semibold text-gray-700 mb-2">What is a GUID/UUID?</h2>
       <p class="text-gray-600 mb-4">
         A GUID (Globally Unique Identifier) or UUID (Universally Unique Identifier) is a 128-bit
@@ -126,7 +126,7 @@ const copyGuidsToClipboard = async (guids: string) => {
     </div>
 
     <div class="bg-white p-8 rounded-lg shadow-md w-full max-w-md mx-8">
-      <h2 class="text-2xl font-bold mb-4">GUID Generator</h2>
+      <h1 class="text-2xl font-bold mb-4">GUID Generator</h1>
       <div class="flex items-center mb-4">
         <label for="numberOfGuids" class="mr-2">Number of GUIDs:</label>
         <input

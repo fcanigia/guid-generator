@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { onMounted, ref } from 'vue'
+import { onMounted, ref, watch } from 'vue'
 import { GuidGeneratorFactory } from '../factories/GuidGeneratorFactory'
 
 const numberOfGuids = ref(1)
@@ -16,7 +16,22 @@ const elapsedTime = ref('')
 
 onMounted(() => {
   window.addEventListener('keydown', handleGlobalKeydown)
+  loadSettingsFromSession()
 })
+
+watch(
+  [
+    generationOption,
+    generationWrapper,
+    generationSeparator,
+    generationTrailingChar,
+    copyToClipboard,
+    uppercase
+  ],
+  () => {
+    saveSettingsToSession()
+  }
+)
 
 const handleGlobalKeydown = (event: KeyboardEvent) => {
   if (event.key === 'Enter') {
@@ -86,6 +101,31 @@ const copyGuidsToClipboard = async (guids: string) => {
     console.error('Failed to copy GUIDs to clipboard:', error)
   }
 }
+
+const saveSettingsToSession = () => {
+  sessionStorage.setItem('generationOption', generationOption.value)
+  sessionStorage.setItem('generationWrapper', generationWrapper.value)
+  sessionStorage.setItem('generationSeparator', generationSeparator.value)
+  sessionStorage.setItem('generationTrailingChar', generationTrailingChar.value)
+  sessionStorage.setItem('copyToClipboard', copyToClipboard.value.toString())
+  sessionStorage.setItem('uppercase', uppercase.value.toString())
+}
+
+const loadSettingsFromSession = () => {
+  const storedOption = sessionStorage.getItem('generationOption')
+  const storedWrapper = sessionStorage.getItem('generationWrapper')
+  const storedSeparator = sessionStorage.getItem('generationSeparator')
+  const storedTrailingChar = sessionStorage.getItem('generationTrailingChar')
+  const storedCopyToClipboard = sessionStorage.getItem('copyToClipboard')
+  const storedUppercase = sessionStorage.getItem('uppercase')
+
+  if (storedOption) generationOption.value = storedOption
+  if (storedWrapper) generationWrapper.value = storedWrapper
+  if (storedSeparator) generationSeparator.value = storedSeparator
+  if (storedTrailingChar) generationTrailingChar.value = storedTrailingChar
+  if (storedCopyToClipboard) copyToClipboard.value = storedCopyToClipboard === 'true'
+  if (storedUppercase) uppercase.value = storedUppercase === 'true'
+}
 </script>
 
 <template>
@@ -97,7 +137,7 @@ const copyGuidsToClipboard = async (guids: string) => {
     <!-- Left Section: Text Information -->
 
     <div class="hidden md:block text-left p-6 max-w-md">
-      <h1 class="text-2xl font-bold text-gray-800 mb-4 inline-flex items-center" title="Home">
+      <h1 class="text-xl font-bold text-gray-800 mb-4 inline-flex items-center" title="Home">
         <img src="/public/favicon.ico" alt="GUID generator logo" class="mr-2" />
         Online Free GUID Generator
       </h1>

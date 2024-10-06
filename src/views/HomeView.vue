@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { onMounted, ref } from 'vue'
-import { GuidGeneratorFactory } from '@/factories/GuidGeneratorFactory'
+import { GuidGeneratorFactory } from '../factories/GuidGeneratorFactory'
 
 const numberOfGuids = ref(1)
 const numberOfGuidsInput = ref(null)
@@ -97,32 +97,52 @@ const copyGuidsToClipboard = async (guids: string) => {
     <!-- Left Section: Text Information -->
 
     <div class="hidden md:block text-left p-6 max-w-md">
-      <h1 class="text-3xl font-bold text-gray-800 mb-4 inline-flex items-center" title="Home">
+      <h1 class="text-2xl font-bold text-gray-800 mb-4 inline-flex items-center" title="Home">
         <img src="/public/favicon.ico" alt="GUID generator logo" class="mr-2" />
         Online Free GUID Generator
       </h1>
-      <h2 class="text-2xl font-semibold text-gray-700 mb-2">What is a GUID/UUID?</h2>
-      <p class="text-gray-600 mb-4">
+      <h2 class="text-xl font-semibold text-gray-700 mb-2">What is a GUID/UUID?</h2>
+      <p class="text-gray-600 mb-4 text-xs">
         A GUID (Globally Unique Identifier) or UUID (Universally Unique Identifier) is a 128-bit
         value used to uniquely identify objects or information in a distributed system. This unique
         identifier does not rely on a central authority, making it an ideal solution for various
         applications.
       </p>
-      <h2 class="text-2xl font-semibold text-gray-700 mb-2">
+      <h2 class="text-xl font-semibold text-gray-700 mb-2">
         How to Use the Online GUID Generator?
       </h2>
-      <p class="text-gray-600 mb-4">
+      <p class="text-gray-600 mb-4 text-xs">
         With our <strong>free online GUID generator</strong>, you can easily create unique
         identifiers. Just press the Enter key or click on the "Get GUIDs" button to generate your
         GUIDs. This tool is designed to help developers and users generate GUIDs quickly and
         efficiently.
       </p>
-      <h2 class="text-2xl font-semibold text-gray-700 mb-2">Why Use a GUID?</h2>
-      <p class="text-gray-600 mb-4">
+      <h2 class="text-xl font-semibold text-gray-700 mb-2">Why Use a GUID?</h2>
+      <p class="text-gray-600 mb-4 text-xs">
         Using a GUID can be beneficial for ensuring uniqueness in databases, distributed systems,
         and applications that require a reliable method for object identification. Understanding how
         to generate a GUID and why it’s important can help in many software development scenarios.
       </p>
+      <h2 class="text-xl font-semibold text-gray-700 mb-2">Frequently Asked Questions</h2>
+      <ul class="list-disc text-gray-600 mb-4 text-xs">
+        <li>
+          <strong>Is a GUID really unique?</strong> While GUIDs are
+          <strong>statistically unique</strong>, they are not guaranteed to be unique due to random
+          generation. However, the chance of duplication is astronomically low.
+        </li>
+        <li>
+          <strong>Can I use a GUID as a primary key in my database?</strong> Yes, GUIDs are commonly
+          used as primary keys, especially in distributed systems where multiple databases are
+          involved. However, they may consume more storage space compared to traditional
+          integer-based keys.
+        </li>
+        <li>
+          <strong>What are the different types of UUIDs?</strong> UUIDs come in multiple types such
+          as <strong>UUIDv1</strong>, which includes a timestamp, and UUIDv4, which is randomly
+          generated. Our tool supports several UUID generation methods to suit your specific use
+          case.
+        </li>
+      </ul>
     </div>
 
     <div class="bg-white p-8 rounded-lg shadow-md w-full max-w-md mx-8">

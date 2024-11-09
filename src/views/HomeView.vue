@@ -130,8 +130,10 @@ const loadSettingsFromSession = () => {
 
 <template>
   <div class="sr-only">
-    Easily generate unique GUIDs with our free online GUID generator. Simple, fast, and reliable!
-    Try it now!
+    <h1>
+      Easily generate unique GUIDs with our free online GUID generator. Simple, fast, and reliable!
+      Try it now!
+    </h1>
   </div>
   <div class="min-h-screen bg-gray-100 flex items-center justify-center">
     <!-- Left Section: Text Information -->

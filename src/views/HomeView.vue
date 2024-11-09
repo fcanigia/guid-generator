@@ -129,15 +129,8 @@ const loadSettingsFromSession = () => {
 </script>
 
 <template>
-  <div class="sr-only">
-    <h1>
-      Easily generate unique GUIDs with our free online GUID generator. Simple, fast, and reliable!
-      Try it now!
-    </h1>
-  </div>
   <div class="min-h-screen bg-gray-100 flex items-center justify-center">
     <!-- Left Section: Text Information -->
-
     <div class="hidden md:block text-left p-6 max-w-md">
       <h1 class="text-xl font-bold text-gray-800 mb-4 inline-flex items-center" title="Home">
         <img src="/public/favicon.ico" alt="GUID generator logo" class="mr-2" />
@@ -325,7 +318,7 @@ const loadSettingsFromSession = () => {
   cursor: pointer; /* Change cursor to pointer on hover */
 }
 
-.sr-only {
+/* .sr-only {
   position: absolute;
   width: 1px;
   height: 1px;
@@ -334,5 +327,5 @@ const loadSettingsFromSession = () => {
   overflow: hidden;
   clip: rect(0, 0, 0, 0);
   border: 0;
-}
+} */
 </style>

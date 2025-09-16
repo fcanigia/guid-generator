@@ -84,7 +84,7 @@ const formatElapsedTime = (diff: number): string => {
   }
 }
 
-const onEnter = () => {
+const onEnterOrSpace = () => {
   if (numberOfGuids.value < 1) {
     numberOfGuids.value = 1
   } else if (numberOfGuids.value > 200000) {
@@ -190,7 +190,8 @@ const loadSettingsFromSession = () => {
           v-model="numberOfGuids"
           type="number"
           class="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-blue-500"
-          @keydown.enter.prevent="onEnter"
+          @keydown.enter.prevent="onEnterOrSpace"
+          @keydown.space.prevent="onEnterOrSpace"
           max="200000"
           min="1"
           autofocus

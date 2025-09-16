@@ -10,7 +10,7 @@ const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
 
 // Define the hostname for the sitemap
-const hostname = 'https://freeguid.online'
+const hostname = 'https://guid.site'
 
 // Create a SitemapStream instance
 const sitemap = new SitemapStream({ hostname })

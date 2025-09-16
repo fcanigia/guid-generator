@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://freeguid.online/sitemap.xml
+Sitemap: https://guid.site/sitemap.xml

@@ -5,11 +5,11 @@
   },
   "routes": [
     {
-      "route": "/*",
-      "serve": "/index.html"
+      "route": "/console",
+      "rewrite": "/index.html"
     },
     {
-      "route": "/console",
+      "route": "/*",
       "rewrite": "/index.html"
     }
   ],

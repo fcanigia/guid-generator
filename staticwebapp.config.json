@@ -5,12 +5,14 @@
   },
   "routes": [
     {
-      "route": "/console",
-      "rewrite": "/index.html"
-    },
-    {
       "route": "/*",
-      "rewrite": "/index.html"
+      "serve": "/index.html"
     }
-  ]
+  ],
+  "responseOverrides": {
+    "404": {
+      "rewrite": "/index.html",
+      "statusCode": 200
+    }
+  }
 }

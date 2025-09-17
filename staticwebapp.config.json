@@ -7,6 +7,10 @@
     {
       "route": "/*",
       "serve": "/index.html"
+    },
+    {
+      "route": "/console",
+      "rewrite": "/index.html"
     }
   ],
   "responseOverrides": {
